@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:backgroundTint="#FFC107"
+    app:cardCornerRadius="16dp"
+
+    android:layout_margin="12dp">
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Baslik"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#519B86"
+        android:layout_marginStart="12dp">
+    </TextView>
+    <TextView
+    android:layout_marginTop="24dp"
+    android:id="@+id/price"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="Baslik"
+    android:textSize="20sp"
+    android:layout_marginStart="12dp">
+</TextView>
+    <TextView
+        android:layout_marginTop="48dp"
+        android:id="@+id/month"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Baslik"
+        android:textSize="20sp"
+        android:layout_marginStart="12dp">
+    </TextView>
+
+
+</androidx.cardview.widget.CardView>
