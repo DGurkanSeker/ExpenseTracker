@@ -27,30 +27,27 @@ class DBOperations(context : Context) : SQLiteOpenHelper(context,DB_NAME,null,DB
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         TODO("Not yet implemented")
     }
-    fun InsertData(price : Int, header : String, month : Int,) : Long {
+    fun insertData(price : Int, header : String, month : Int,) : Long {
         val cv = ContentValues().apply {
-            run {
-                this.put(COLUMN_NAME, header)
-                this.put(COLUMN_MONTH, month)
-                this.put(COLUMN_PRICE, price)
-            }
+
+            this.put(COLUMN_NAME, header)
+            this.put(COLUMN_MONTH, month)
+            this.put(COLUMN_PRICE, price)
+
             return writableDatabase.insert(TABLE_NAME, null, this)
         }
     }
-    fun readData() : List<dataModel>
-    {
-        val datalist = mutableListOf<dataModel>()
-        val cursor : Cursor = readableDatabase.query(TABLE_NAME,null,null,null,null,null,null)
+    fun readData(): List<DataModel> {
+        val datalist = mutableListOf<DataModel>()
+        val cursor: Cursor = readableDatabase.query(TABLE_NAME, null, null, null, null, null, null)
 
-        with(cursor)
-        {
-            while (moveToNext())
-            {
-                val id = getLong(getColumnIndexOrThrow(COLUMN_ID))
+        with(cursor) {
+            while (moveToNext()) {
+                val id = getInt(getColumnIndexOrThrow(COLUMN_ID))
                 val header = getString(getColumnIndexOrThrow(COLUMN_NAME))
                 val price = getInt(getColumnIndexOrThrow(COLUMN_PRICE))
                 val month = getInt(getColumnIndexOrThrow(COLUMN_MONTH))
-                datalist.add(dataModel(id,header,price,month))
+                datalist.add(DataModel(id, header, price, month))
             }
         }
         cursor.close()
